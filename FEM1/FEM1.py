@@ -153,3 +153,42 @@ import matplotlib.pyplot as plt
 #plt.grid(True)
 #plt.show()
 
+#CW3
+t1=np.arange(1,6)
+t2=np.arange(5,0,-1)
+t3=np.zeros((3,2),int)
+t4=2*np.ones((2,3),int)
+t5=10*np.ones((5,1),int)
+t6=np.arange(-90,-60,10)
+t7=np.block([[t1],[t2]])
+t8=np.block([[t4],[t6]])
+t9=np.block([t3,t8])
+t10=np.block([[t7],[t9]])
+A=np.block([t10,t5])
+print(A)
+#CW4
+B = A[1,:]+A[3,:]
+print(B)
+#CW5
+C = [np.max(A[:,0]),np.max(A[:,1]),np.max(A[:,2]),np.max(A[:,3]),np.max(A[:,4]),np.max(A[:,5])]
+print(C)
+#CW6
+D = np.delete(B,0,0)
+D = np.delete(D,4,0)
+print(D)
+#CW7
+np.put(D, np.where(D == 4), 0, mode='clip')
+print(D)
+#CW8
+E = np.delete(C, [np.where(C == np.max(C))[0][0], np.where(C == np.min(C))[0][0]],0)
+print(E)
+#CW9
+for i in A:
+    if np.min(i) == np.min(A) and np.max(i) == np.max(A):
+        print(i)
+#CW10
+print('Tablicowo:')
+print(D*E)
+
+print('Wektorowo:')
+print(D@E)
