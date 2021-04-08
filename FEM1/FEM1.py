@@ -192,3 +192,10 @@ print(D*E)
 
 print('Wektorowo:')
 print(D@E)
+
+#CW11
+def rng_array():
+    array = np.random.random_integers(10, size=(2,2))
+    return(array, np.trace(array))
+
+print(rng_array())
